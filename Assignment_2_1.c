@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
 typedef struct node
 {
     int value;
@@ -187,6 +186,122 @@ Node *insertbeforeval(Node *head)
     temp->next = ptr;
     return head;
 }
+Node *deletebeg(Node *head)
+{
+    if (head == NULL)
+    {
+       printf("Empty list");
+    }
+    Node *temp;
+    temp=head->next;
+    return temp;
+    free(head);
+}
+Node *deleteend(Node *head)
+{
+
+    int data;
+    Node *preptr, *ptr;
+    preptr=head;
+    ptr = head->next;
+    if (head == NULL)
+    {
+       printf("Empty list");
+    }
+    while (ptr->next != NULL)
+    {
+        ptr = ptr->next;
+        preptr = preptr->next;
+    }
+    free(ptr);
+    preptr->next = NULL;
+    return head;
+}
+Node *deleteafterk(Node *head)
+{
+    int  k;
+    Node *temp, *ptr, *preptr;
+    preptr = head;
+    ptr = head->next;
+    printf("Enter the kth index:");
+    scanf("%d", &k);
+    if (head == NULL)
+    {
+       printf("Empty list");
+    }
+    for (int i = 0; i < k; i++)
+    {
+        ptr = ptr->next;
+        preptr = preptr->next;
+    }
+    free(ptr);
+    preptr->next = NULL;
+
+    return head;
+}
+Node *deletebeforek(Node *head)
+{
+    int data, k;
+    Node *temp, *ptr, *preptr;
+    preptr = head;
+    ptr = head->next;
+    printf("Enter the kth index:");
+    scanf("%d", &k);
+    if (head == NULL)
+    {
+       printf("Empty list");
+    }
+    for (int i = 0; i < k - 2; i++)
+    {
+        ptr = ptr->next;
+        preptr = preptr->next;
+    }
+    preptr->next = ptr->next;
+    free(ptr);
+    return head;
+}
+Node *deletek(Node *head)
+{
+    int data, k;
+    Node *temp, *ptr, *preptr;
+    preptr = head;
+    ptr = head->next;
+    printf("Enter the kth index:");
+    scanf("%d", &k);
+    if (head == NULL)
+    {
+       printf("Empty list");
+    }
+    for (int i = 0; i < k - 1; i++)
+    {
+        ptr = ptr->next;
+        preptr = preptr->next;
+    }
+    preptr->next = ptr->next;
+    free(ptr);
+    return head;
+}
+Node *deleteval(Node *head)
+{
+    int data, k;
+    Node *temp, *ptr, *preptr;
+    preptr = head;
+    ptr = head->next;
+    printf("Enter the data to be deleted:\n");
+    scanf("%d", &data);
+    if (head == NULL)
+    {
+       printf("Empty list");
+    }
+    while (ptr->value != data)
+    {
+        ptr = ptr->next;
+        preptr = preptr->next;
+    }
+    preptr->next = ptr->next;
+    free(ptr);
+    return head;
+}
 
 int main()
 {
@@ -254,7 +369,27 @@ int main()
                 head = insertbeforeval(head);
                 display(head);
                 break;
-
+            case 9:
+                head = deletebeg(head);
+                display(head);
+                break;
+            case 10:
+                head = deleteend(head);
+                display(head);
+                break;
+            case 11:
+                head = deleteafterk(head);
+                display(head);   
+                break;   
+            case 12:
+                head = deletebeforek(head);
+                display(head);      
+            case 13:
+                head = deletek(head);
+                display(head); 
+            case 14:
+                head = deleteval(head);
+                display(head);                
             case 21:
                 exit(0);
                 break;
