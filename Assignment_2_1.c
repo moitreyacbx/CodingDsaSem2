@@ -190,10 +190,10 @@ Node *deletebeg(Node *head)
 {
     if (head == NULL)
     {
-       printf("Empty list");
+        printf("Empty list");
     }
     Node *temp;
-    temp=head->next;
+    temp = head->next;
     return temp;
     free(head);
 }
@@ -202,11 +202,11 @@ Node *deleteend(Node *head)
 
     int data;
     Node *preptr, *ptr;
-    preptr=head;
+    preptr = head;
     ptr = head->next;
     if (head == NULL)
     {
-       printf("Empty list");
+        printf("Empty list");
     }
     while (ptr->next != NULL)
     {
@@ -219,7 +219,7 @@ Node *deleteend(Node *head)
 }
 Node *deleteafterk(Node *head)
 {
-    int  k;
+    int k;
     Node *temp, *ptr, *preptr;
     preptr = head;
     ptr = head->next;
@@ -227,7 +227,7 @@ Node *deleteafterk(Node *head)
     scanf("%d", &k);
     if (head == NULL)
     {
-       printf("Empty list");
+        printf("Empty list");
     }
     for (int i = 0; i < k; i++)
     {
@@ -249,7 +249,7 @@ Node *deletebeforek(Node *head)
     scanf("%d", &k);
     if (head == NULL)
     {
-       printf("Empty list");
+        printf("Empty list");
     }
     for (int i = 0; i < k - 2; i++)
     {
@@ -270,7 +270,7 @@ Node *deletek(Node *head)
     scanf("%d", &k);
     if (head == NULL)
     {
-       printf("Empty list");
+        printf("Empty list");
     }
     for (int i = 0; i < k - 1; i++)
     {
@@ -291,7 +291,7 @@ Node *deleteval(Node *head)
     scanf("%d", &data);
     if (head == NULL)
     {
-       printf("Empty list");
+        printf("Empty list");
     }
     while (ptr->value != data)
     {
@@ -379,17 +379,17 @@ int main()
                 break;
             case 11:
                 head = deleteafterk(head);
-                display(head);   
-                break;   
+                display(head);
+                break;
             case 12:
                 head = deletebeforek(head);
-                display(head);      
+                display(head);
             case 13:
                 head = deletek(head);
-                display(head); 
+                display(head);
             case 14:
                 head = deleteval(head);
-                display(head);                
+                display(head);
             case 21:
                 exit(0);
                 break;
